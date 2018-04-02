@@ -1,0 +1,80 @@
+{
+  "name": "code-test-node",
+  "version": "1.1.0",
+  "description": "Is Endpoint1 divisble by divisors in Endpoint2",
+  "author": "Lukemico",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --hot",
+    "build": "webpack",
+    "test": "jest",
+    "test:dev": "jest --watchAll",
+    "ci": "npm -s run stylecheck && npm -s run test",
+    "todos": "fixme -p client/src/js && fixme -p client/spec/",
+    "stylecheck": "eslint client/src/js/ client/spec/ --fix",
+    "heroku-postbuild": "webpack --progress"
+  },
+  "dependencies": {
+    "code-test": "file:./framework/",
+    "css-loader": "^0.23.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "file-loader": "^0.8.5",
+    "handlebars-template-loader": "^0.6.0",
+    "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.9.0",
+    "json-loader": "^0.5.7",
+    "lodash": "^4.17.5",
+    "lower-bound": "0.0.3",
+    "node-sass": "^4.8.3",
+    "style-loader": "^0.13.2",
+    "url-loader": "^0.5.9"
+  },
+  "engines": {
+    "node": "9.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "fixme": "^0.4.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^21.2.1",
+    "jest-cli": "^22.4.2",
+    "jest-handlebars": "^1.0.1",
+    "jsdom": "^11.5.1",
+    "regenerator-runtime": "^0.11.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss|less)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "\\.hbs$": "jest-handlebars"
+    },
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testRegex": "/client/spec/.*\\.spec\\.js$",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "client/src/js/**/*.js"
+    ]
+  }
+}
